@@ -11,5 +11,13 @@ namespace SimpleApp.Tests
             p.Name = "New Name";
             Assert.Equal("New Name", p.Name);
         }
+
+        [Fact]
+        public void CanChangeProductPrice()
+        {
+            var p = new Product { Name = "Test", Price = 100M };
+            p.Price = 200M;
+            Assert.Equal(200M, p.Price);
+        }
     }
 }
