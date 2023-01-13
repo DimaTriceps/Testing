@@ -1808,6 +1808,19 @@
         "build": {
           "build/netcoreapp3.1/xunit.runner.visualstudio.props": {}
         }
+      },
+      "SimpleApp/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/SimpleApp.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SimpleApp.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -6103,11 +6116,17 @@
         "xunit.runner.visualstudio.2.4.5.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "SimpleApp/1.0.0": {
+      "type": "project",
+      "path": "../SimpleApp/SimpleApp.csproj",
+      "msbuildProject": "../SimpleApp/SimpleApp.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.NET.Test.Sdk >= 17.3.2",
+      "SimpleApp >= 1.0.0",
       "coverlet.collector >= 3.1.2",
       "xunit >= 2.4.2",
       "xunit.runner.visualstudio >= 2.4.5"
@@ -6145,7 +6164,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\TrainingProjects\\Testing\\SimpleApp\\SimpleApp.csproj": {
+              "projectPath": "D:\\TrainingProjects\\Testing\\SimpleApp\\SimpleApp.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
