@@ -20,18 +20,21 @@ namespace SimpleApp.Tests
         public void IndexActionModelIsComplete()
         {
             //Arrange
-            var controller = new HomeController();
-            Product[] products = new Product[]
+            Product[] testData = new Product[]
             {
-                new Product{Name="kayak", Price=275M },
-                new Product {Name="lifejacket", Price = 49M}
+                new Product {Name="P1", Price=75M},
+                new Product { Name = "P2", Price = 120M },
+                new Product { Name = "P3", Price = 110M }
             };
+            IDataSource data = new FakeDataSource(testData);
+            var controller = new HomeController();
+            controller.dataSource = data;
 
             //Act
             var model = (controller.Index() as ViewResult)?.ViewData.Model
                 as IEnumerable<Product>;
             //Assert
-            Assert.Equal(products, model,
+            Assert.Equal(data.Products, model,
                 Comparer.Get<Product>((p1, p2) => p1.Name == p2.Name &&
                     p1.Price == p2.Price));
         }
