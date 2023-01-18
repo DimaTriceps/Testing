@@ -8,6 +8,14 @@ namespace SimpleApp.Tests
 {
     public class HomeControllerTests
     {
+        class FakeDataSource : IDataSource
+        {
+            public IEnumerable<Product> Products { get; set; }
+            public FakeDataSource(Product[] data)
+            {
+                Products = data;
+            }
+        }
         [Fact]
         public void IndexActionModelIsComplete()
         {
